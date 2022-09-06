@@ -22,14 +22,14 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long subjectId;
 
-    private String Name;
+    private String name;
 
     @ManyToMany(mappedBy = "subjects")
     Set<Student> students;
 
     //Many subjects to one teacher
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "teacherId", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacherId" )
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Teacher teacher;
